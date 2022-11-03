@@ -1,9 +1,9 @@
 # Use osixia/light-baseimage
 # sources: https://github.com/osixia/docker-light-baseimage
-FROM osixia/light-baseimage:alpine-0.1.6-dev
+FROM osixia/light-baseimage:alpine-0.1.9
 
 # Keepalived version
-ARG KEEPALIVED_VERSION=2.0.20
+ARG KEEPALIVED_VERSION=2.2.7
 
 # Download, build and install Keepalived
 RUN apk --no-cache add \
@@ -43,11 +43,11 @@ RUN apk --no-cache add \
     openssl-dev
 
 # Add service directory to /container/service
-ADD service /container/service
+#ADD service /container/service
 
 # Use baseimage install-service script
 # https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/install-service
-RUN /container/tool/install-service
+#RUN /container/tool/install-service
 
 # Add default env variables
 ADD environment /container/environment/99-default
